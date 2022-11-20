@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-MeterReaderClient-3232FCE9-6F2F-4C5D-97D6-3162ACF8B41D</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.18.0" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.40.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.40.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\MeterReader\Protos\enums.proto" GrpcServices="None">
+      <Link>Protos\enums.proto</Link>
+    </Protobuf>
+    <Protobuf Include="..\MeterReader\Protos\MeterReader.proto" GrpcServices="Client">
+      <Link>Protos\MeterReader.proto</Link>
+    </Protobuf>
+  </ItemGroup>
+</Project>
